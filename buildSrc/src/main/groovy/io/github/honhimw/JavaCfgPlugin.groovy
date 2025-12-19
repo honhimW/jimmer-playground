@@ -22,7 +22,7 @@ class JavaCfgPlugin implements Plugin<Project> {
             compile.sourceCompatibility = JavaVersion.VERSION_1_8
             compile.targetCompatibility = JavaVersion.VERSION_1_8
             compile.options.encoding = UTF_8.name()
-            compile.options.compilerArgs << "-Xlint:deprecation"
+            compile.options.compilerArgs << '-Werror' << '-Xlint:-options' << '-Xlint:deprecation'
         }
         project.tasks.withType(Jar).configureEach { jar ->
             jar.enabled = true

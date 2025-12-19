@@ -66,7 +66,7 @@ public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<
     public TableImplementor<Object> resolve(RootTableResolver ctx) {
         TableImplementor<Object> tableImplementor;
         if (prop != null) {
-            tableImplementor = parent.__resolve(ctx).joinImplementor(prop.getName(), joinType, treatedAs);
+            tableImplementor = parent.__resolve(ctx).joinImplementor(prop.getName(), joinType, treatedAs, -1);
             return tableImplementor.baseTableOwner(parent.__baseTableOwner());
         }
         return null;

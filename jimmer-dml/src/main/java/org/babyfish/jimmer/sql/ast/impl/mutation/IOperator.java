@@ -1,5 +1,6 @@
 package org.babyfish.jimmer.sql.ast.impl.mutation;
 
+import org.babyfish.jimmer.impl.util.Classes;
 import org.babyfish.jimmer.meta.*;
 import org.babyfish.jimmer.runtime.DraftSpi;
 import org.babyfish.jimmer.runtime.ImmutableSpi;
@@ -961,6 +962,13 @@ class IOperator {
         }
 
         @Override
+        public boolean isIdInteger() {
+            return Classes.INT_TYPES.contains(
+                shape.getType().getIdProp().getReturnClass()
+            );
+        }
+
+        @Override
         public boolean isUpdatedByKey() {
             return shape.getIdGetters().isEmpty();
         }
@@ -1181,6 +1189,14 @@ class IOperator {
                 }
             }
             return true;
+        }
+
+        @Override
+        public boolean isIdInteger() {
+            if (generatedIdGetter == null) {
+                return false;
+            }
+            return Classes.INT_TYPES.contains(generatedIdGetter.prop().getReturnClass());
         }
 
         @Override

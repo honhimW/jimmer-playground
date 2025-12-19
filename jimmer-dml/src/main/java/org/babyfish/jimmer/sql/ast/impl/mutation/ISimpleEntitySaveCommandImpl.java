@@ -198,6 +198,11 @@ public class ISimpleEntitySaveCommandImpl<E>
     }
 
     @Override
+    public SimpleEntitySaveCommand<E> setDissociationLogicalDeleteEnabled(boolean enabled) {
+        return new ISimpleEntitySaveCommandImpl<>(new DissociationLogicalDeleteEnabledCfg(cfg, enabled));
+    }
+
+    @Override
     public SimpleSaveResult<E> execute(Connection con, Fetcher<E> fetcher) {
         SaveOptions options = options();
         return options.getSqlClient()

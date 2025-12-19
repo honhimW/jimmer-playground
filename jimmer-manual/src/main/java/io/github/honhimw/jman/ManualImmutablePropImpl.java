@@ -2,6 +2,7 @@ package io.github.honhimw.jman;
 
 import org.babyfish.jimmer.jackson.Converter;
 import org.babyfish.jimmer.jackson.ConverterMetadata;
+import org.babyfish.jimmer.jackson.v3.ConverterMetadata3;
 import org.babyfish.jimmer.lang.Ref;
 import org.babyfish.jimmer.meta.*;
 import org.babyfish.jimmer.sql.DissociateAction;
@@ -20,51 +21,51 @@ import java.util.List;
 /**
  * @author honhimW
  */
- 
+
 public class ManualImmutablePropImpl implements ImmutableProp {
-    
+
     public ImmutableType declaringType;
-    
+
     @Override
     public @NotNull ImmutableType getDeclaringType() {
         return declaringType;
     }
-    
+
     public PropId id;
 
     @Override
     public PropId getId() {
         return id;
     }
-    
+
     public String name;
 
     @Override
     public @NotNull String getName() {
         return name;
     }
-    
+
     public ImmutablePropCategory category;
 
     @Override
     public @NotNull ImmutablePropCategory getCategory() {
         return category;
     }
-    
+
     public Class<?> elementClass;
 
     @Override
     public @NotNull Class<?> getElementClass() {
         return elementClass;
     }
-    
+
     public Class<?> returnClass;
 
     @Override
     public @NotNull Class<?> getReturnClass() {
         return returnClass;
     }
-    
+
     public Type genericType;
 
     @Override
@@ -443,4 +444,12 @@ public class ManualImmutablePropImpl implements ImmutableProp {
     public String toString() {
         return getDeclaringType() + "." + getName();
     }
+
+    public ConverterMetadata3 converterMetadata3;
+
+    @Override
+    public ConverterMetadata3 getConverterMetadata3() {
+        return converterMetadata3;
+    }
+
 }

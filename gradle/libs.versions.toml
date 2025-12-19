@@ -2,7 +2,7 @@
 slf4j = "2.0.17"
 logback = "1.5.20"
 jspecify = "1.0.0"
-jimmer-bom = "0.9.113"
+jimmer-bom = "0.9.119"
 h2 = "2.3.232"
 postgresql = "42.7.8"
 mysql = "9.4.0"

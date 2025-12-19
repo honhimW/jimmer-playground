@@ -25,18 +25,18 @@ public class ISaver {
     private final SaveContext ctx;
 
     public ISaver(
-            SaveOptions options,
-            Connection con,
-            ImmutableType type,
-            Fetcher<?> fetcher
+        SaveOptions options,
+        Connection con,
+        ImmutableType type,
+        Fetcher<?> fetcher
     ) {
         this(
-                new SaveContext(
-                        options,
-                        con,
-                        type,
-                        fetcher
-                )
+            new SaveContext(
+                options,
+                con,
+                type,
+                fetcher
+            )
         );
     }
 
@@ -50,20 +50,20 @@ public class ISaver {
         MutationTrigger trigger = ctx.trigger;
         // single object save also call `produceList` because `fetch` may change draft
         E newEntity = (E) Internal.produceList(
-                immutableType,
-                Collections.singleton(entity),
-                drafts -> {
-                    saveAllImpl((List<DraftSpi>) drafts);
-                },
-                trigger == null ? null : trigger::prepareSubmit
+            immutableType,
+            Collections.singleton(entity),
+            drafts -> {
+                saveAllImpl((List<DraftSpi>) drafts);
+            },
+            trigger == null ? null : trigger::prepareSubmit
         ).get(0);
         if (trigger != null) {
             trigger.submit(ctx.options.getSqlClient(), ctx.con);
         }
         return new SimpleSaveResult<>(
-                ctx.affectedRowCountMap,
-                entity,
-                newEntity
+            ctx.affectedRowCountMap,
+            entity,
+            newEntity
         );
     }
 
@@ -75,12 +75,12 @@ public class ISaver {
         ImmutableType immutableType = getType(entities.iterator().next());
         MutationTrigger trigger = ctx.trigger;
         List<E> newEntities = (List<E>) Internal.produceList(
-                immutableType,
-                entities,
-                drafts -> {
-                    saveAllImpl((List<DraftSpi>) drafts);
-                },
-                trigger == null ? null : trigger::prepareSubmit
+            immutableType,
+            entities,
+            drafts -> {
+                saveAllImpl((List<DraftSpi>) drafts);
+            },
+            trigger == null ? null : trigger::prepareSubmit
         );
         if (trigger != null) {
             trigger.submit(ctx.options.getSqlClient(), ctx.con);
@@ -90,10 +90,10 @@ public class ISaver {
         List<BatchSaveResult.Item<E>> items = new ArrayList<>(entities.size());
         while (oldItr.hasNext() && newItr.hasNext()) {
             items.add(
-                    new BatchSaveResult.Item<>(
-                            oldItr.next(),
-                            newItr.next()
-                    )
+                new BatchSaveResult.Item<>(
+                    oldItr.next(),
+                    newItr.next()
+                )
             );
         }
         return new BatchSaveResult<>(ctx.affectedRowCountMap, items);
@@ -205,9 +205,9 @@ public class ISaver {
 
     @SuppressWarnings("unchecked")
     private void savePostAssociation(
-            ImmutableProp prop,
-            Batch<DraftSpi> batch,
-            boolean detachOtherSiblings
+        ImmutableProp prop,
+        Batch<DraftSpi> batch,
+        boolean detachOtherSiblings
     ) {
         ISaver targetSaver = new ISaver(ctx.prop(prop));
 
@@ -265,9 +265,9 @@ public class ISaver {
 
     @SuppressWarnings("unchecked")
     private void fetchImpl(
-            List<DraftSpi> drafts,
-            Iterable<Batch<DraftSpi>> batches,
-            boolean fillIdIfNecessary
+        List<DraftSpi> drafts,
+        Iterable<Batch<DraftSpi>> batches,
+        boolean fillIdIfNecessary
     ) {
         DraftSpi[] arr = new DraftSpi[drafts.size()];
         int index = 0;
@@ -288,14 +288,14 @@ public class ISaver {
         if (!unmatchedIds.isEmpty()) {
             JSqlClient sqlClient = ctx.options.getSqlClient().caches(CacheDisableConfig::disableAll);
             Map<Object, Object> map = ((EntitiesImpl) sqlClient.getEntities())
-                    .forSaveCommandFetch(fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER)
-                    .forConnection(ctx.con)
-                    .findMapByIds(
-                            fillIdIfNecessary ?
-                                    new FetcherImpl<>((Class<Object>) ctx.path.getType().getJavaClass()) :
-                                    (Fetcher<Object>) fetcher,
-                            unmatchedIds
-                    );
+                .forSaveCommandFetch(fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER)
+                .forConnection(ctx.con)
+                .findMapByIds(
+                    fillIdIfNecessary ?
+                        new FetcherImpl<>((Class<Object>) ctx.path.getType().getJavaClass()) :
+                        (Fetcher<Object>) fetcher,
+                    unmatchedIds
+                );
             index = 0;
             ListIterator<DraftSpi> itr = drafts.listIterator();
             while (itr.hasNext()) {
@@ -313,13 +313,13 @@ public class ISaver {
         if (!nonIdObjects.isEmpty()) {
             if (drafts.size() == 1) {
                 Map<KeyMatcher.Group, List<ImmutableSpi>> rowMap = Rows.findByKeys(
-                        ctx,
-                        fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER,
-                        fillIdIfNecessary ?
-                                new FetcherImpl<>((Class<ImmutableSpi>) ctx.path.getType().getJavaClass()) :
-                                (Fetcher<ImmutableSpi>) fetcher,
-                        nonIdObjects,
-                        null
+                    ctx,
+                    fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER,
+                    fillIdIfNecessary ?
+                        new FetcherImpl<>((Class<ImmutableSpi>) ctx.path.getType().getJavaClass()) :
+                        (Fetcher<ImmutableSpi>) fetcher,
+                    nonIdObjects,
+                    null
                 );
                 if (!rowMap.isEmpty()) {
                     ImmutableSpi row = rowMap.values().iterator().next().iterator().next();
@@ -359,10 +359,10 @@ public class ISaver {
                         actualFetcher = (Fetcher<ImmutableSpi>) fetcher;
                     }
                     Map<KeyMatcher.Group, Map<Object, ImmutableSpi>> map = Rows.findMapByKeys(
-                            ctx,
-                            fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER,
-                            actualFetcher,
-                            nonIdObjects
+                        ctx,
+                        fillIdIfNecessary ? QueryReason.GET_ID_FOR_PRE_SAVED_ENTITIES : QueryReason.FETCHER,
+                        actualFetcher,
+                        nonIdObjects
                     );
                     if (map.isEmpty()) {
                         continue;
@@ -435,9 +435,9 @@ public class ISaver {
                 case UPDATE_ONLY:
                     detach = true;
                     operator.update(
-                            preHandler.originalIdObjMap(),
-                            preHandler.originalkeyObjMap(),
-                            batch
+                        preHandler.originalIdObjMap(),
+                        preHandler.originalkeyObjMap(),
+                        batch
                     );
                     break;
                 default:
@@ -454,26 +454,27 @@ public class ISaver {
         MiddleTableOperator middleTableOperator = null;
         if (prop.isMiddleTableDefinition()) {
             middleTableOperator = new MiddleTableOperator(
-                    ctx.prop(prop),
-                    ctx.options.getDeleteMode() == DeleteMode.LOGICAL
+                ctx.prop(prop),
+                ctx.options.getDeleteMode() == DeleteMode.LOGICAL
             );
         } else {
             ImmutableProp mappedBy = prop.getMappedBy();
             if (mappedBy != null) {
                 if (mappedBy.isColumnDefinition()) {
                     subOperator = new ChildTableOperator(
-                            new DeleteContext(
-                                    DeleteOptions.detach(ctx.options),
-                                    ctx.con,
-                                    ctx.trigger,
-                                    ctx.affectedRowCountMap,
-                                    ctx.path.to(prop)
-                            )
+                        new DeleteContext(
+                            DeleteOptions.detach(ctx.options),
+                            ctx.con,
+                            ctx.trigger,
+                            ctx.affectedRowCountMap,
+                            ctx.path.to(prop)
+                        ),
+                        ctx.options.isDissociationLogicalDeleteEnabled()
                     );
                 } else if (mappedBy.isMiddleTableDefinition()) {
                     middleTableOperator = new MiddleTableOperator(
-                            ctx.prop(prop),
-                            ctx.options.getDeleteMode() == DeleteMode.LOGICAL
+                        ctx.prop(prop),
+                        ctx.options.getDeleteMode() == DeleteMode.LOGICAL
                     );
                 }
             }
@@ -495,26 +496,27 @@ public class ISaver {
         MiddleTableOperator middleTableOperator = null;
         if (prop.isMiddleTableDefinition()) {
             middleTableOperator = new MiddleTableOperator(
-                    ctx.prop(prop),
-                    ctx.options.getDeleteMode() == DeleteMode.LOGICAL
+                ctx.prop(prop),
+                ctx.options.getDeleteMode() == DeleteMode.LOGICAL
             );
         } else {
             ImmutableProp mappedBy = prop.getMappedBy();
             if (mappedBy != null) {
                 if (mappedBy.isColumnDefinition()) {
                     subOperator = new ChildTableOperator(
-                            new DeleteContext(
-                                    DeleteOptions.detach(ctx.options),
-                                    ctx.con,
-                                    ctx.trigger,
-                                    ctx.affectedRowCountMap,
-                                    ctx.path.to(prop)
-                            )
+                        new DeleteContext(
+                            DeleteOptions.detach(ctx.options),
+                            ctx.con,
+                            ctx.trigger,
+                            ctx.affectedRowCountMap,
+                            ctx.path.to(prop)
+                        ),
+                        ctx.options.isDissociationLogicalDeleteEnabled()
                     );
                 } else if (mappedBy.isMiddleTableDefinition()) {
                     middleTableOperator = new MiddleTableOperator(
-                            ctx.prop(prop),
-                            ctx.options.getDeleteMode() == DeleteMode.LOGICAL
+                        ctx.prop(prop),
+                        ctx.options.getDeleteMode() == DeleteMode.LOGICAL
                     );
                 }
             }
@@ -638,7 +640,7 @@ public class ISaver {
 
         private boolean isOptimizableImpl(Fetcher<?> fetcher) {
             if (fetcher.getFieldMap().size() == 1 &&
-                    fetcher.getFieldMap().values().iterator().next().getProp().isId()) {
+                fetcher.getFieldMap().values().iterator().next().getProp().isId()) {
                 return true;
             }
             UpsertMask<?> mask = ctx.options.getUpsertMask(fetcher.getImmutableType());
