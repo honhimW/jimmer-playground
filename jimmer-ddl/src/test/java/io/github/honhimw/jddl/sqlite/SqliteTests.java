@@ -11,11 +11,8 @@ import org.junit.jupiter.api.Assertions;
 import javax.sql.DataSource;
 import java.sql.Types;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class SqliteTests extends AbstractRealDBTests {
 
     @Override

@@ -33,11 +33,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public abstract class AbstractRealDBTests extends AbstractDDLTest {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractRealDBTests.class);

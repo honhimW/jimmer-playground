@@ -2,11 +2,8 @@ package io.github.honhimw.jddl;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * @author honhimW
- * @since 2025-10-29
- */
-
+/// @author honhimW
+/// @since 2025-10-29
 public class DatabaseVersionTests {
 
     @Test

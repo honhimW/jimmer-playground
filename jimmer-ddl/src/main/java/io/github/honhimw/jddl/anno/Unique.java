@@ -6,18 +6,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * @author honhimW
- */
+/// @author honhimW
 @Target({})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Unique {
 
     String name() default "";
 
-    /**
-     * (Required) An array of the column names that make up the constraint.
-     */
+    /// (Required) An array of the column names that make up the constraint.
     String[] columns();
 
     Kind kind() default Kind.PATH;

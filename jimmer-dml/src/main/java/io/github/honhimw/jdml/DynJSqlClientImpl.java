@@ -7,11 +7,8 @@ import org.babyfish.jimmer.sql.meta.IdGenerator;
 import org.babyfish.jimmer.sql.meta.impl.IdentityIdGenerator;
 import org.babyfish.jimmer.sql.runtime.JSqlClientImplementor;
 
-/**
- * @author honhimW
- * @since 2025-10-30
- */
-
+/// @author honhimW
+/// @since 2025-10-30
 public class DynJSqlClientImpl extends AbstractJSqlClientDelegate {
 
     private final JSqlClientImplementor delegate;

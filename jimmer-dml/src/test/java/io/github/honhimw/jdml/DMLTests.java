@@ -21,11 +21,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.UUID;
 
-/**
- * @author honhimW
- * @since 2025-10-28
- */
-
+/// @author honhimW
+/// @since 2025-10-28
 public class DMLTests extends AbstractH2 {
 
     @Override

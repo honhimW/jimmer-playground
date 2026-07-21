@@ -14,11 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- * @since 2025-09-05
- */
-
+/// @author honhimW
+/// @since 2025-09-05
 public class DDLAutoRunner implements AutoCloseable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger("jimmer.ddl.sql");

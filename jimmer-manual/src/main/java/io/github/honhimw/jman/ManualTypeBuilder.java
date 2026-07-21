@@ -12,11 +12,8 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 import java.util.function.Consumer;
 
-/**
- * @author honhimW
- * @since 2025-10-23
- */
-
+/// @author honhimW
+/// @since 2025-10-23
 public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER, FK_BUILDER>, PROP_BUILDER extends ManualPropBuilder<PROP_BUILDER>, FK_BUILDER extends ManualTypeBuilder.FK<FK_BUILDER, PROP_BUILDER>> {
 
     public static final Entity ENTITY = new Entity() {
@@ -77,34 +74,28 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
         type.getMappedIds = Collections.emptyList();
     }
 
-    /**
-     * Set the table name.
-     *
-     * @param tableName table name
-     * @return the current instance
-     */
+    /// Set the table name.
+    ///
+    /// @param tableName table name
+    /// @return the current instance
     public SELF tableName(String tableName) {
         type.tableName = tableName;
         return self();
     }
 
-    /**
-     * Add a column on the table.
-     *
-     * @param name property name
-     * @param type java type
-     * @return the current instance
-     */
+    /// Add a column on the table.
+    ///
+    /// @param name property name
+    /// @param type java type
+    /// @return the current instance
     public SELF addColumn(String name, Class<?> type) {
         return addColumn(column -> column.name(name).type(type));
     }
 
-    /**
-     * Add a column on the table.
-     *
-     * @param c column configurer
-     * @return the current instance
-     */
+    /// Add a column on the table.
+    ///
+    /// @param c column configurer
+    /// @return the current instance
     public SELF addColumn(Consumer<PROP_BUILDER> c) {
         PROP_BUILDER column = propBuilder();
         c.accept(column);
@@ -117,12 +108,10 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
         return self();
     }
 
-    /**
-     * Add relation on the column.
-     *
-     * @param c foreign-key and referenced table id column configurer
-     * @return the current instance
-     */
+    /// Add relation on the column.
+    ///
+    /// @param c foreign-key and referenced table id column configurer
+    /// @return the current instance
     public SELF addRelation(Consumer<FK_BUILDER> c) {
         FK_BUILDER fk = fkBuilder();
         // Construct dependent type & type#id
@@ -199,11 +188,9 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
         return (FK_BUILDER) new FK<>();
     }
 
-    /**
-     * Build the manually configured ImmutableType.
-     *
-     * @return immutable-type
-     */
+    /// Build the manually configured ImmutableType.
+    ///
+    /// @return immutable-type
     public ImmutableType build() {
         _assert(!id.isEmpty(), "`id` should not be empty");
         _assert(isNotBlank(type.tableName), "`type.tableName` should not be blank");
@@ -256,48 +243,40 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
 
         }
 
-        /**
-         * Set referenced table name
-         *
-         * @param tableName referenced table name
-         * @return the current instance
-         */
+        /// Set referenced table name
+        ///
+        /// @param tableName referenced table name
+        /// @return the current instance
         public SELF tableName(String tableName) {
             this.tableName = tableName;
             return self();
         }
 
-        /**
-         * Set reference property name
-         *
-         * @param propName property name
-         * @return the current instance
-         */
+        /// Set reference property name
+        ///
+        /// @param propName property name
+        /// @return the current instance
         public SELF propName(String propName) {
             this.propName = propName;
             return self();
         }
 
-        /**
-         * Set referenced type, useful when the type is a pre-constructed.
-         *
-         * @param type referenced table type
-         * @return the current instance
-         * @see #id(Consumer) either using this or using id(Consumer)
-         */
+        /// Set referenced type, useful when the type is a pre-constructed.
+        ///
+        /// @param type referenced table type
+        /// @return the current instance
+        /// @see #id(Consumer) either using this or using id(Consumer)
         public SELF type(ImmutableType type) {
             this.referenceType = type;
             return self();
         }
 
-        /**
-         * Configure the referenced table id column.
-         * Auto build a single column type for generation.
-         *
-         * @param c id column configurer
-         * @return the current instance
-         * @see #type(ImmutableType) either using this or using type(ImmutableType)
-         */
+        /// Configure the referenced table id column.
+        /// Auto build a single column type for generation.
+        ///
+        /// @param c id column configurer
+        /// @return the current instance
+        /// @see #type(ImmutableType) either using this or using type(ImmutableType)
         public SELF id(Consumer<PROP_BUILDER> c) {
             if (this.idConsumer != null) {
                 this.idConsumer = this.idConsumer.andThen(c);
@@ -307,12 +286,10 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
             return self();
         }
 
-        /**
-         * Configure the column reference to the referenced type.
-         *
-         * @param c foreign-key column configurer
-         * @return the current instance
-         */
+        /// Configure the column reference to the referenced type.
+        ///
+        /// @param c foreign-key column configurer
+        /// @return the current instance
         public SELF self(Consumer<PROP_BUILDER> c) {
             if (this.selfConsumer != null) {
                 this.selfConsumer = this.selfConsumer.andThen(c);

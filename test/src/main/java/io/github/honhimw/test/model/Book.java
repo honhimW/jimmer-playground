@@ -11,16 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * The Book Entity $:)$
- */
+/// The Book Entity $:)$
 @Entity
 @KeyUniqueConstraint
 public interface Book {
 
-    /**
-     * Id $:)$
-     */
+    /// Id $:)$
     @Id
     @GeneratedValue(generatorType = UUIDIdGenerator.class)
     UUID id();
@@ -28,35 +24,25 @@ public interface Book {
     @GeneratedValue(sequenceName = "another_id_generator")
     String anotherId();
 
-    /**
-     * Name $:)$
-     */
+    /// Name $:)$
     @Key
     String name();
 
-    /**
-     * Edition $:)$
-     */
+    /// Edition $:)$
     @Key
     int edition();
 
-    /**
-     * Price $:)$
-     */
+    /// Price $:)$
     BigDecimal price();
 
-    /**
-     * Store $:)$
-     *
-     * <p>Note: This property can be null</p>
-     */
+    /// Store $:)$
+    ///
+    /// Note: This property can be null
     @TNullable // issue #1023
     @ManyToOne
     BookStore store();
 
-    /**
-     * Authors $:)$
-     */
+    /// Authors $:)$
     @ManyToMany
     @JoinTable(
             name = "BOOK_AUTHOR_MAPPING",
@@ -66,11 +52,9 @@ public interface Book {
     )
     List<Author> authors();
 
-    /**
-     * StoreId $:)$
-     *
-     * <p>Note: This property can be null</p>
-     */
+    /// StoreId $:)$
+    ///
+    /// Note: This property can be null
     @IdView
     @Nullable
     UUID storeId();
@@ -80,9 +64,7 @@ public interface Book {
         return store() == null;
     }
 
-    /**
-     * AuthorIds $:)$
-     */
+    /// AuthorIds $:)$
     @IdView("authors")
     List<UUID> authorIds();
 

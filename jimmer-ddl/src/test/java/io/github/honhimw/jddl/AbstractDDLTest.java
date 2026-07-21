@@ -23,10 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public abstract class AbstractDDLTest extends AbstractRealDB {
 
     protected void assertColumnTypes(ImmutableType immutableType, Map<String, Map<String, Object>> collect) {

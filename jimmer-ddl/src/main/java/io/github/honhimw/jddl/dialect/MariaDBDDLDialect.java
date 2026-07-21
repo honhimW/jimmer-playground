@@ -5,10 +5,7 @@ import org.babyfish.jimmer.sql.dialect.MySqlDialect;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class MariaDBDDLDialect extends DefaultDDLDialect {
 
     public MariaDBDDLDialect() {

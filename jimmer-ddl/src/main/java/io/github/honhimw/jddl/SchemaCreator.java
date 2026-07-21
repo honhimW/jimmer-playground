@@ -20,10 +20,7 @@ import org.jspecify.annotations.NullUnmarked;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 @NullUnmarked
 public class SchemaCreator implements Exporter<@NonNull Collection<ImmutableType>> {
 
@@ -46,9 +43,7 @@ public class SchemaCreator implements Exporter<@NonNull Collection<ImmutableType
         this.ctx = ctx;
     }
 
-    /**
-     * do get database meta-data
-     */
+    /// do get database meta-data
     public void init() {
         if (ctx == null) {
             DatabaseVersion version = DDLUtils.getDatabaseVersion(client);
@@ -163,6 +158,7 @@ public class SchemaCreator implements Exporter<@NonNull Collection<ImmutableType
                                     defaultUnique.columns = new String[]{joinColumnName, inverseJoinColumnName};
                                     defaultUnique.kind = Kind.NAME;
                                     System.arraycopy(uniques, 0, newUniques, 1, uniques.length);
+                                    newUniques[0] = defaultUnique;
                                     DDLUtils.DefaultTableDef defaultTableDef = new DDLUtils.DefaultTableDef();
                                     defaultTableDef.uniques = newUniques;
                                     defaultTableDef.indexes = indexes;

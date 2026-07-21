@@ -21,10 +21,7 @@ import java.time.Instant;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class DefaultDDLDialect implements DDLDialect {
 
     protected final Dialect dialect;

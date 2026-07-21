@@ -4,10 +4,8 @@ import org.babyfish.jimmer.sql.Column;
 
 import java.lang.annotation.Annotation;
 
-/**
- * @author honhimW
- * @since 2025-11-13
- */
+/// @author honhimW
+/// @since 2025-11-13
 public class DefaultColumn implements Column {
     public String name = "";
     public String type = "";

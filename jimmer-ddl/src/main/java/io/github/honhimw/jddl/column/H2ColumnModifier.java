@@ -2,11 +2,8 @@ package io.github.honhimw.jddl.column;
 
 import io.github.honhimw.jddl.dialect.DDLDialect;
 
-/**
- * @author honhimW
- * @since 2025-10-21
- */
-
+/// @author honhimW
+/// @since 2025-10-21
 public class H2ColumnModifier extends ColumnModifier {
 
     public H2ColumnModifier(DDLDialect dialect, String table, String column) {

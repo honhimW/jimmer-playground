@@ -6,10 +6,8 @@ import org.babyfish.jimmer.sql.meta.UserIdGenerator;
 
 import java.lang.annotation.Annotation;
 
-/**
- * @author honhimW
- * @since 2025-11-13
- */
+/// @author honhimW
+/// @since 2025-11-13
 public class DefaultGeneratedValue implements GeneratedValue {
     public GenerationType strategy = GenerationType.AUTO;
     public Class<? extends UserIdGenerator<?>> generatorType = UserIdGenerator.None.class;

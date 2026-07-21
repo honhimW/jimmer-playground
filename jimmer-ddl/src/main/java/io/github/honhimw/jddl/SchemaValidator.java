@@ -12,11 +12,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- * @since 2025-07-11
- */
-
+/// @author honhimW
+/// @since 2025-07-11
 public class SchemaValidator {
 
     private final JSqlClientImplementor client;

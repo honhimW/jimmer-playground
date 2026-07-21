@@ -9,10 +9,7 @@ import java.util.UUID;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class SqlServerDDLDialect extends DefaultDDLDialect {
 
     public SqlServerDDLDialect() {

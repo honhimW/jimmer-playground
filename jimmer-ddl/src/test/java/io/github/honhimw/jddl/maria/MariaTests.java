@@ -9,11 +9,8 @@ import org.testcontainers.mariadb.MariaDBContainer;
 
 import java.util.Optional;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class MariaTests extends AbstractRealDBTests {
 
     @Override

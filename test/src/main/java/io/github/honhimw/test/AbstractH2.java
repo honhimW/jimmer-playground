@@ -7,11 +7,8 @@ import org.jspecify.annotations.Nullable;
 
 import javax.sql.DataSource;
 
-/**
- * @author honhimW
- * @since 2025-10-28
- */
-
+/// @author honhimW
+/// @since 2025-10-28
 public abstract class AbstractH2 extends AbstractRealDB {
 
     @Override

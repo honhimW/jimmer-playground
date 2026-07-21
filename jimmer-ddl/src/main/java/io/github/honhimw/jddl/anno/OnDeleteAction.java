@@ -1,8 +1,6 @@
 package io.github.honhimw.jddl.anno;
 
-/**
- * @author honhimW
- */
+/// @author honhimW
 public enum OnDeleteAction {
     NONE(""),
     CASCADE("cascade"),

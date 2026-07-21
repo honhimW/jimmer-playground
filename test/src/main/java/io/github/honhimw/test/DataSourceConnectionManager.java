@@ -8,11 +8,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.function.Function;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class DataSourceConnectionManager implements ConnectionManager {
 
     private final DataSource dataSource;

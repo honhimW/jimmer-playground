@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class DatabaseVersion {
 
     private static final Pattern VERSION_PATTERN = Pattern.compile("\\d+");

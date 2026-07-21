@@ -2,10 +2,7 @@ package io.github.honhimw.jddl.dialect;
 
 import org.babyfish.jimmer.sql.dialect.TiDBDialect;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class TiDBDDLDialect extends MySqlDDLDialect {
 
     public TiDBDDLDialect() {

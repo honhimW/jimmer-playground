@@ -3,11 +3,8 @@ package io.github.honhimw.jman;
 import org.babyfish.jimmer.meta.ImmutableType;
 import org.babyfish.jimmer.runtime.ImmutableSpi;
 
-/**
- * @author honhimW
- * @since 2025-10-28
- */
-
+/// @author honhimW
+/// @since 2025-10-28
 public class ManualImmutableSpi extends AbstractManualSpi implements ImmutableSpi {
 
     public static ManualImmutableSpi from(ImmutableSpi immutableSpi) {

@@ -8,11 +8,8 @@ import io.github.honhimw.jman.ManualTypeBuilder;
 import java.lang.annotation.Annotation;
 import java.util.List;
 
-/**
- * @author honhimW
- * @since 2025-11-11
- */
-
+/// @author honhimW
+/// @since 2025-11-11
 public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableBuilder.FK> {
 
     private final DDLUtils.DefaultTableDef tableDef = new DDLUtils.DefaultTableDef();
@@ -27,34 +24,28 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         type.annotations = new Annotation[]{tableDef};
     }
 
-    /**
-     * Set the comment on table.
-     *
-     * @param comment comment
-     * @return the current instance
-     */
+    /// Set the comment on table.
+    ///
+    /// @param comment comment
+    /// @return the current instance
     public TableBuilder comment(String comment) {
         tableDef.comment = comment;
         return self();
     }
 
-    /**
-     * Set the table-type for MySQL e.g. InnoDB
-     *
-     * @param tableType MySQL table type
-     * @return the current instance
-     */
+    /// Set the table-type for MySQL e.g. InnoDB
+    ///
+    /// @param tableType MySQL table type
+    /// @return the current instance
     public TableBuilder tableType(String tableType) {
         tableDef.tableType = tableType;
         return self();
     }
 
-    /**
-     * Add index on the table.
-     *
-     * @param index index definition
-     * @return the current instance
-     */
+    /// Add index on the table.
+    ///
+    /// @param index index definition
+    /// @return the current instance
     public TableBuilder addIndex(Index index) {
         List<Index> list = asList(tableDef.indexes);
         list.add(index);
@@ -62,13 +53,11 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         return self();
     }
 
-    /**
-     * Add index on the table.
-     *
-     * @param kind    columns reference kind
-     * @param columns index columns
-     * @return the current instance
-     */
+    /// Add index on the table.
+    ///
+    /// @param kind    columns reference kind
+    /// @param columns index columns
+    /// @return the current instance
     public TableBuilder addIndex(Kind kind, String... columns) {
         List<Index> list = asList(tableDef.indexes);
         DDLUtils.DefaultIndex defaultIndex = new DDLUtils.DefaultIndex(columns);
@@ -78,12 +67,10 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         return self();
     }
 
-    /**
-     * Add unique constraint on the table.
-     *
-     * @param unique unique definition
-     * @return the current instance
-     */
+    /// Add unique constraint on the table.
+    ///
+    /// @param unique unique definition
+    /// @return the current instance
     public TableBuilder addUnique(Unique unique) {
         List<Unique> list = asList(tableDef.uniques);
         list.add(unique);
@@ -91,13 +78,11 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         return self();
     }
 
-    /**
-     * Add unique constraint on the table.
-     *
-     * @param kind    columns reference kind
-     * @param columns unique columns
-     * @return the current instance
-     */
+    /// Add unique constraint on the table.
+    ///
+    /// @param kind    columns reference kind
+    /// @param columns unique columns
+    /// @return the current instance
     public TableBuilder addUnique(Kind kind, String... columns) {
         List<Unique> list = asList(tableDef.uniques);
         DDLUtils.DefaultUnique defaultUnique = new DDLUtils.DefaultUnique();
@@ -108,12 +93,10 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         return self();
     }
 
-    /**
-     * Add check constraint on the table.
-     *
-     * @param check check definition
-     * @return the current instance
-     */
+    /// Add check constraint on the table.
+    ///
+    /// @param check check definition
+    /// @return the current instance
     public TableBuilder addCheck(Check check) {
         List<Check> list = asList(tableDef.checks);
         list.add(check);
@@ -121,12 +104,10 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
         return this;
     }
 
-    /**
-     * Add check constraint on the table.
-     *
-     * @param check check constraint content
-     * @return the current instance
-     */
+    /// Add check constraint on the table.
+    ///
+    /// @param check check constraint content
+    /// @return the current instance
     public TableBuilder addCheck(String check) {
         List<Check> list = asList(tableDef.checks);
         list.add(new DDLUtils.DefaultCheck(check));
@@ -154,12 +135,10 @@ public class TableBuilder extends ManualTypeBuilder<TableBuilder, Column, TableB
 
         }
 
-        /**
-         * Foreign key on delete action
-         *
-         * @param action on delete action
-         * @return the current instance
-         */
+        /// Foreign key on delete action
+        ///
+        /// @param action on delete action
+        /// @return the current instance
         public FK action(OnDeleteAction action) {
             this.self(self -> {
                 DDLUtils.DefaultRelation foreignKey = new DDLUtils.DefaultRelation();

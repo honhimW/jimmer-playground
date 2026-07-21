@@ -8,11 +8,8 @@ import org.jspecify.annotations.Nullable;
 
 import javax.sql.DataSource;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class H2Tests extends AbstractRealDBTests {
 
     @Override

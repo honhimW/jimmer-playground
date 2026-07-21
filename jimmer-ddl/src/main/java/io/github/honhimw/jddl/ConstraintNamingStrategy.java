@@ -1,9 +1,6 @@
 package io.github.honhimw.jddl;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class ConstraintNamingStrategy {
 
     public boolean uppercase = false;

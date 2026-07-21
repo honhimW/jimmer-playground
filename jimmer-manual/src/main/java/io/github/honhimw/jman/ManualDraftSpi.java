@@ -7,11 +7,8 @@ import org.babyfish.jimmer.runtime.DraftSpi;
 import org.babyfish.jimmer.runtime.ImmutableSpi;
 import org.jspecify.annotations.Nullable;
 
-/**
- * @author honhimW
- * @since 2025-10-30
- */
-
+/// @author honhimW
+/// @since 2025-10-30
 public class ManualDraftSpi extends AbstractManualSpi implements DraftSpi {
 
     public static ManualDraftSpi from(ImmutableSpi immutableSpi) {

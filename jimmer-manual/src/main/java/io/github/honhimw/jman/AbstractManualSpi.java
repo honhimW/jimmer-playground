@@ -9,11 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @author honhimW
- * @since 2025-10-30
- */
-
+/// @author honhimW
+/// @since 2025-10-30
 public abstract class AbstractManualSpi implements ImmutableSpi {
 
     protected final ImmutableType type;

@@ -6,11 +6,8 @@ import org.babyfish.jimmer.sql.Table;
 
 import java.util.UUID;
 
-/**
- * @author honhimW
- * @since 2025-11-03
- */
-
+/// @author honhimW
+/// @since 2025-11-03
 @Table(name = "REFERRED_TABLE")
 @Entity
 public interface Referred {

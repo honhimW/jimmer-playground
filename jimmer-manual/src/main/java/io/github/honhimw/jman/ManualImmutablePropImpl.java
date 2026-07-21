@@ -17,10 +17,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class ManualImmutablePropImpl implements ImmutableProp {
 
     public ImmutableType declaringType;

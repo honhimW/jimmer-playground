@@ -4,10 +4,7 @@ import org.babyfish.jimmer.sql.dialect.SQLiteDialect;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class SQLiteDDLDialect extends DefaultDDLDialect {
 
     public SQLiteDDLDialect() {

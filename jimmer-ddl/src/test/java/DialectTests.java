@@ -5,11 +5,8 @@ import org.babyfish.jimmer.sql.dialect.DefaultDialect;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/**
- * @author honhimW
- * @since 2025-11-13
- */
-
+/// @author honhimW
+/// @since 2025-11-13
 public class DialectTests {
 
     @Test

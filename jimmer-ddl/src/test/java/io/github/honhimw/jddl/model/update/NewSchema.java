@@ -5,11 +5,8 @@ import org.babyfish.jimmer.sql.Entity;
 import org.babyfish.jimmer.sql.Id;
 import org.babyfish.jimmer.sql.Table;
 
-/**
- * @author honhimW
- * @since 2025-10-22
- */
-
+/// @author honhimW
+/// @since 2025-10-22
 @Entity
 @Table(name = "TEST_SCHEMA")
 public interface NewSchema {

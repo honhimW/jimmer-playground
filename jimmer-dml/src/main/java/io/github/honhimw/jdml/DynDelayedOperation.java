@@ -10,11 +10,8 @@ import org.babyfish.jimmer.sql.ast.impl.table.WeakJoinHandle;
 import org.babyfish.jimmer.sql.ast.table.Table;
 import org.babyfish.jimmer.sql.ast.table.spi.AbstractTypedTable;
 
-/**
- * @author honhimW
- * @since 2025-10-31
- */
-
+/// @author honhimW
+/// @since 2025-10-31
 public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<Object> {
 
     private final AbstractTypedTable<?> parent;

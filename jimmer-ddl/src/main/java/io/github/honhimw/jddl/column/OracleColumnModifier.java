@@ -6,11 +6,8 @@ import org.jspecify.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author honhimW
- * @since 2025-10-21
- */
-
+/// @author honhimW
+/// @since 2025-10-21
 public class OracleColumnModifier extends ColumnModifier {
 
     public OracleColumnModifier(DDLDialect dialect, String table, String column) {

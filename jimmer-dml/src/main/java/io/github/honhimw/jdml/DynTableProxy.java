@@ -14,11 +14,8 @@ import org.babyfish.jimmer.sql.ast.table.spi.AbstractTypedTable;
 import org.babyfish.jimmer.sql.ast.table.spi.TableLike;
 import org.babyfish.jimmer.sql.ast.table.spi.TableProxy;
 
-/**
- * @author honhimW
- * @since 2025-10-28
- */
-
+/// @author honhimW
+/// @since 2025-10-28
 public class DynTableProxy extends AbstractTypedTable<Object> {
 
     private final Table<Object> parent;

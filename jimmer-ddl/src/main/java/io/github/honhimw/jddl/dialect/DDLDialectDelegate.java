@@ -16,11 +16,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
-/**
- * @author honhimW
- * @since 2025-09-25
- */
-
+/// @author honhimW
+/// @since 2025-09-25
 public class DDLDialectDelegate implements DDLDialect {
 
     protected final DDLDialect delegate;

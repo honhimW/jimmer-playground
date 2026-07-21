@@ -4,10 +4,7 @@ import org.babyfish.jimmer.meta.ImmutableProp;
 import org.babyfish.jimmer.meta.ImmutableType;
 import io.github.honhimw.jddl.anno.Relation;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class ForeignKey {
 
     public final Relation relation;

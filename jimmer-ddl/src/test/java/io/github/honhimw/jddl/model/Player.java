@@ -9,11 +9,8 @@ import org.jspecify.annotations.Nullable;
 
 import java.sql.Types;
 
-/**
- * @author hon_him
- * @since 2025-03-06
- */
-
+/// @author hon\_him
+/// @since 2025-03-06
 @Entity
 @TableDef(
     comment = "powerlifting player",

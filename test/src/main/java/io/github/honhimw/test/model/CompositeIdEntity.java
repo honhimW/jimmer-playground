@@ -5,11 +5,8 @@ import org.babyfish.jimmer.sql.Id;
 import org.babyfish.jimmer.sql.Table;
 import org.jspecify.annotations.Nullable;
 
-/**
- * @author honhimW
- * @since 2025-11-06
- */
-
+/// @author honhimW
+/// @since 2025-11-06
 @Entity
 @Table(name = CompositeIdEntity.TABLE_NAME)
 public interface CompositeIdEntity {

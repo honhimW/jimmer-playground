@@ -5,10 +5,7 @@ import org.babyfish.jimmer.sql.dialect.OracleDialect;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class OracleDDLDialect extends DefaultDDLDialect {
 
     public OracleDDLDialect() {

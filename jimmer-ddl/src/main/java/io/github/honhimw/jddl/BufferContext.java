@@ -9,10 +9,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 class BufferContext {
 
     public final StringBuilder buf;

@@ -8,10 +8,7 @@ import java.sql.Types;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public interface DDLDialect extends Dialect {
 
     static DDLDialect of(Dialect dialect) {
@@ -26,13 +23,15 @@ public interface DDLDialect extends Dialect {
         return '"';
     }
 
-    /**
-     * null -> null
-     * "name" -> "name"
-     * `name -> "name"
-     * foo bar -> "foo bar"
-     * column_name -> column_name
-     */
+    /// null -> null
+    ///
+    /// "name" -> "name"
+    ///
+    /// `name -> "name"
+    ///
+    /// foo bar -> "foo bar"
+    ///
+    /// column_name -> column_name
     default String quote(String name) {
         if (name == null) {
             return null;
@@ -63,13 +62,11 @@ public interface DDLDialect extends Dialect {
         return true;
     }
 
-    /**
-     * The syntax used during DDL to define a column as being an IDENTITY of
-     * a particular type.
-     *
-     * @param type The {@link Types} type code.
-     * @return The appropriate DDL fragment.
-     */
+    /// The syntax used during DDL to define a column as being an IDENTITY of
+    /// a particular type.
+    ///
+    /// @param type The [Types] type code.
+    /// @return The appropriate DDL fragment.
     default String getIdentityColumnString(int type) {
         return "";
     }
@@ -167,15 +164,13 @@ public interface DDLDialect extends Dialect {
 
     int resolveJdbcType(Class<?> type, EnumType.@Nullable Strategy strategy);
 
-    /**
-     * if not blank using in column definition, otherwise using{@link #resolveJdbcType(Class, EnumType.Strategy)}
-     * <p>
-     * useful when JavaType is not in {@link Types} such as {@link UUID}
-     *
-     * @param type     java type
-     * @param strategy enum strategy, string(varchar) or ordinal(number)
-     * @return sql type if not blank, not null
-     */
+    /// if not blank using in column definition, otherwise using[#resolveJdbcType(Class, EnumType.Strategy)]
+    ///
+    /// useful when JavaType is not in [Types] such as [UUID]
+    ///
+    /// @param type     java type
+    /// @param strategy enum strategy, string(varchar) or ordinal(number)
+    /// @return sql type if not blank, not null
     default String resolveSqlType(Class<?> type, EnumType.@Nullable Strategy strategy) {
         if (type == UUID.class) {
             return columnType(Types.VARCHAR, 36L, null, null);
@@ -268,9 +263,7 @@ public interface DDLDialect extends Dialect {
         return "add column";
     }
 
-    /**
-     * SQLite only?
-     */
+    /// SQLite only?
     default boolean supportsCreateTableWithForeignKey() {
         return false;
     }

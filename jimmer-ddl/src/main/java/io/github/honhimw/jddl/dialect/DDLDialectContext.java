@@ -4,11 +4,8 @@ import io.github.honhimw.jddl.DatabaseVersion;
 import org.babyfish.jimmer.sql.dialect.*;
 import org.jspecify.annotations.NonNull;
 
-/**
- * @author honhimW
- * @since 2025-11-13
- */
-
+/// @author honhimW
+/// @since 2025-11-13
 public class DDLDialectContext {
 
     public final DatabaseVersion version;

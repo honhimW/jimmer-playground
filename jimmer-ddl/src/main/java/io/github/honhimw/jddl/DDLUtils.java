@@ -21,10 +21,7 @@ import java.util.*;
 
 import static java.sql.Types.*;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class DDLUtils {
 
     public static String replace(String type, @Nullable Long length, @Nullable Integer precision, @Nullable Integer scale) {

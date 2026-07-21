@@ -12,11 +12,8 @@ import org.jspecify.annotations.Nullable;
 
 import java.sql.Types;
 
-/**
- * @author honhimW
- * @since 2025-10-21
- */
-
+/// @author honhimW
+/// @since 2025-10-21
 public class ColumnResolver {
 
     private final JSqlClientImplementor client;

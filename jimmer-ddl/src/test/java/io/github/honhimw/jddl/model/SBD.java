@@ -3,11 +3,8 @@ package io.github.honhimw.jddl.model;
 import io.github.honhimw.jddl.anno.ColumnDef;
 import org.babyfish.jimmer.sql.Embeddable;
 
-/**
- * @author hon_him
- * @since 2025-03-12
- */
-
+/// @author hon\_him
+/// @since 2025-03-12
 @Embeddable
 public interface SBD {
 

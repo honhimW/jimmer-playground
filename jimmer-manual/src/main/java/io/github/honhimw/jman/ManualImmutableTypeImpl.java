@@ -17,10 +17,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BiFunction;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class ManualImmutableTypeImpl implements ImmutableType {
 
     @SuppressWarnings("unchecked")

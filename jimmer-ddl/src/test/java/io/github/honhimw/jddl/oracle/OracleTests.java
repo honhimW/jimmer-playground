@@ -11,11 +11,8 @@ import java.time.Duration;
 import java.util.Optional;
 import java.util.Properties;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class OracleTests extends AbstractRealDBTests {
 
     @Override

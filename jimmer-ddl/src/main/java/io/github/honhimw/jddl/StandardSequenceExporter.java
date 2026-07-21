@@ -9,10 +9,7 @@ import org.babyfish.jimmer.sql.runtime.JSqlClientImplementor;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class StandardSequenceExporter implements Exporter<ImmutableProp> {
 
     protected final JSqlClientImplementor client;

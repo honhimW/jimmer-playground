@@ -16,11 +16,8 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.function.Consumer;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public abstract class AbstractRealDB {
 
     @Nullable

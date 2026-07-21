@@ -1,10 +1,7 @@
 package io.github.honhimw.jman;
 
-/**
- * @author honhimW
- * @since 2025-10-30
- */
-
+/// @author honhimW
+/// @since 2025-10-30
 @SuppressWarnings("UnusedReturnValue")
 public class Val {
     private int flags = 0;

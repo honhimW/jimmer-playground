@@ -7,24 +7,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * @author honhimW
- */
+/// @author honhimW
 @Target({})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Index {
 
     String name() default "";
 
-    /**
-     * (Required) The names of the columns to be included in the index,
-     * in order.
-     */
+    /// (Required) The names of the columns to be included in the index,
+    /// in order.
     String[] columns();
 
-    /**
-     * (Optional) Whether the index is unique.
-     */
+    /// (Optional) Whether the index is unique.
     boolean unique() default false;
 
     Kind kind() default Kind.PATH;

@@ -13,11 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- * @since 2025-08-25
- */
-
+/// @author honhimW
+/// @since 2025-08-25
 public class UtilTests extends AbstractH2 {
 
     @Test

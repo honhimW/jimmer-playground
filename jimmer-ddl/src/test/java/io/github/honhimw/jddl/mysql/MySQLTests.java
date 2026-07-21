@@ -9,11 +9,8 @@ import org.testcontainers.mysql.MySQLContainer;
 
 import java.util.Optional;
 
-/**
- * @author honhimW
- * @since 2025-10-20
- */
-
+/// @author honhimW
+/// @since 2025-10-20
 public class MySQLTests extends AbstractRealDBTests {
 
     @Override

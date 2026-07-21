@@ -8,9 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * The BookStore entity $:)$
- */
+/// The BookStore entity $:)$
 @Entity
 @KeyUniqueConstraint
 public interface BookStore {

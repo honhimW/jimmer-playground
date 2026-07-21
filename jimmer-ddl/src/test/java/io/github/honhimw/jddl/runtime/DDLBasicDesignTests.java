@@ -12,11 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * @author honhimW
- * @since 2025-10-23
- */
-
+/// @author honhimW
+/// @since 2025-10-23
 public class DDLBasicDesignTests extends AbstractH2 {
 
     @Test

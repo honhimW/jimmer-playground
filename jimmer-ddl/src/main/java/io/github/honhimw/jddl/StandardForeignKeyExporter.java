@@ -8,10 +8,7 @@ import org.babyfish.jimmer.sql.runtime.JSqlClientImplementor;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class StandardForeignKeyExporter implements Exporter<ForeignKey> {
 
     protected final JSqlClientImplementor client;

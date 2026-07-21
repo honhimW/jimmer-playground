@@ -5,10 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface TableDef {
@@ -21,9 +18,7 @@ public @interface TableDef {
 
     Check[] checks() default {};
 
-    /**
-     * MySQL engine type
-     */
+    /// MySQL engine type
     String tableType() default "";
 
 }

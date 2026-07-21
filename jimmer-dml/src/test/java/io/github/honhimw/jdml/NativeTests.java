@@ -16,11 +16,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.UUID;
 
-/**
- * @author honhimW
- * @since 2025-11-03
- */
-
+/// @author honhimW
+/// @since 2025-11-03
 public class NativeTests extends AbstractH2 {
 
     @Test

@@ -10,9 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-/**
- * Property configuration
- */
+/// Property configuration
 public class ManualPropBuilder<SELF extends ManualPropBuilder<SELF>> {
     protected final ManualImmutablePropImpl prop;
     protected final List<Annotation> annotations = new ArrayList<>();
@@ -36,11 +34,9 @@ public class ManualPropBuilder<SELF extends ManualPropBuilder<SELF>> {
         return self();
     }
 
-    /**
-     * auto-increment on id
-     *
-     * @return the current instance
-     */
+    /// auto-increment on id
+    ///
+    /// @return the current instance
     public SELF autoIncrement() {
         if (generatedValue == null) {
             generatedValue = new DefaultGeneratedValue();
@@ -49,48 +45,40 @@ public class ManualPropBuilder<SELF extends ManualPropBuilder<SELF>> {
         return self();
     }
 
-    /**
-     * Set the property name. This is the logical property name, not the column name,
-     * even though they may look similar(the column name derive from property name).
-     *
-     * @param name property name
-     * @return the current instance
-     */
+    /// Set the property name. This is the logical property name, not the column name,
+    /// even though they may look similar(the column name derive from property name).
+    ///
+    /// @param name property name
+    /// @return the current instance
     public SELF name(String name) {
         prop.name = name;
         prop.id = PropId.byName(name);
         return self();
     }
 
-    /**
-     * set the column name without sneaking
-     *
-     * @param columnName the column name
-     * @return the current instance
-     */
+    /// set the column name without sneaking
+    ///
+    /// @param columnName the column name
+    /// @return the current instance
     public SELF columnName(String columnName) {
         column.name = columnName;
         return self();
     }
 
-    /**
-     * Set the property type, will be auto-mapped to jdbc-type for DDL generation.
-     *
-     * @param type java type
-     * @return the current instance
-     */
+    /// Set the property type, will be auto-mapped to jdbc-type for DDL generation.
+    ///
+    /// @param type java type
+    /// @return the current instance
     public SELF type(Class<?> type) {
         prop.returnClass = type;
         prop.elementClass = type;
         return self();
     }
 
-    /**
-     * Add annotation on the property.
-     *
-     * @param annotation annotation
-     * @return the current instance
-     */
+    /// Add annotation on the property.
+    ///
+    /// @param annotation annotation
+    /// @return the current instance
     public SELF addAnnotation(Annotation annotation) {
         annotations.add(annotation);
         return self();

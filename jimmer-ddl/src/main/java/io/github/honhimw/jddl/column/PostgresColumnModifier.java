@@ -5,11 +5,8 @@ import io.github.honhimw.jddl.dialect.DDLDialect;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author honhimW
- * @since 2025-10-21
- */
-
+/// @author honhimW
+/// @since 2025-10-21
 public class PostgresColumnModifier extends ColumnModifier {
 
     public PostgresColumnModifier(DDLDialect dialect, String table, String column) {

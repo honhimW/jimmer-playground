@@ -20,10 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-/**
- * @author honhimW
- */
-
+/// @author honhimW
 public class StandardTableExporter implements Exporter<ImmutableType> {
 
     protected static final Pattern COLUMN_PATH_PATTERN = Pattern.compile("#(?<column>[\\w.]+)");
@@ -405,23 +402,19 @@ public class StandardTableExporter implements Exporter<ImmutableType> {
         bufferContext.buf.append(')');
     }
 
-    /**
-     * <a href="https://sqlite.org/foreignkeys.html">SQLite Foreign Key Support</a>
-     *
-     * <pre>
-     * CREATE TABLE artist(
-     *   artistid    INTEGER PRIMARY KEY,
-     *   artistname  TEXT
-     * );
-     * CREATE TABLE track(
-     *   trackid     INTEGER,
-     *   trackname   TEXT,
-     *   trackartist INTEGER,     -- Must map to an artist.artistid!
-     *   FOREIGN KEY(trackartist) REFERENCES artist(artistid) -- Add foreign key Here!
-     * );
-     * </pre>
-     *
-     */
+    /// [SQLite Foreign Key Support](https://sqlite.org/foreignkeys.html)
+    /// ```sql
+    /// CREATE TABLE artist(
+    ///   artistid    INTEGER PRIMARY KEY,
+    ///   artistname  TEXT
+    /// );
+    /// CREATE TABLE track(
+    ///   trackid     INTEGER,
+    ///   trackname   TEXT,
+    ///   trackartist INTEGER,     -- Must map to an artist.artistid!
+    ///   FOREIGN KEY(trackartist) REFERENCES artist(artistid) -- Add foreign key Here!
+    /// );
+    /// ```
     private void appendForeignKeys(BufferContext bufferContext) {
         if (dialect.supportsCreateTableWithForeignKey()) {
             for (ForeignKey foreignKey : DDLUtils.getForeignKeys(client.getMetadataStrategy(), bufferContext.tableType)) {
