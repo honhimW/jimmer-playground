@@ -192,16 +192,6 @@ public class DefaultDDLDialect implements DDLDialect {
     }
 
     @Override
-    public boolean isDeleteAliasSupported() {
-        return dialect.isDeleteAliasSupported();
-    }
-
-    @Override
-    public boolean isUpdateAliasSupported() {
-        return dialect.isUpdateAliasSupported();
-    }
-
-    @Override
     public @Nullable String getOffsetOptimizationNumField() {
         return dialect.getOffsetOptimizationNumField();
     }

@@ -20,20 +20,17 @@ public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<
     private final AbstractTypedTable<?> parent;
     private final ImmutableProp prop;
     private final JoinType joinType;
-    private final ImmutableType treatedAs;
 
-    public DynDelayedOperation(AbstractTypedTable<?> parent, ImmutableProp prop, JoinType joinType, ImmutableType treatedAs) {
+    public DynDelayedOperation(AbstractTypedTable<?> parent, ImmutableProp prop, JoinType joinType) {
         this.parent = parent;
         this.prop = prop;
         this.joinType = joinType;
-        this.treatedAs = treatedAs;
     }
 
     public DynDelayedOperation(DynDelayedOperation base, BaseTableOwner baseTableOwner) {
         this.parent = (AbstractTypedTable<?>) base.parent.__baseTableOwner(baseTableOwner);
         this.prop = base.prop;
         this.joinType = base.joinType;
-        this.treatedAs = base.treatedAs;
     }
 
     @Override
@@ -53,9 +50,6 @@ public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<
 
     @Override
     public ImmutableType targetType() {
-        if (treatedAs != null) {
-            return treatedAs;
-        }
         if (prop != null) {
             return prop.getTargetType();
         }
@@ -66,7 +60,7 @@ public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<
     public TableImplementor<Object> resolve(RootTableResolver ctx) {
         TableImplementor<Object> tableImplementor;
         if (prop != null) {
-            tableImplementor = parent.__resolve(ctx).joinImplementor(prop.getName(), joinType, treatedAs, -1);
+            tableImplementor = parent.__resolve(ctx).joinImplementor(prop.getName(), joinType, -1);
             return tableImplementor.baseTableOwner(parent.__baseTableOwner());
         }
         return null;
@@ -86,7 +80,6 @@ public class DynDelayedOperation implements AbstractTypedTable.DelayedOperation<
                "parent=" + parent +
                ", prop=" + prop +
                ", joinType=" + joinType +
-               ", treatedAs=" + treatedAs +
                '}';
     }
 }

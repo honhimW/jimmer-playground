@@ -3,6 +3,7 @@ version = '0.0.1'
 dependencies {
     using platform(libs.jimmer.bom.get())
     using platform(libs.testcontainers.get())
+    using platform(libs.jackson2.get())
 
     api 'org.babyfish.jimmer:jimmer-sql'
 
@@ -15,6 +16,9 @@ dependencies {
     implementation libs.oracle
     implementation libs.sqlite
     implementation libs.logback.classic
+
+    runtimeOnly 'com.fasterxml.jackson.core:jackson-core'
+    runtimeOnly 'com.fasterxml.jackson.core:jackson-databind'
 
     implementation 'org.testcontainers:testcontainers-jdbc'
 

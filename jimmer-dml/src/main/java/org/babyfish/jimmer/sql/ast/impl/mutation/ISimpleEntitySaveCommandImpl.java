@@ -3,10 +3,12 @@ package org.babyfish.jimmer.sql.ast.impl.mutation;
 import org.babyfish.jimmer.View;
 import org.babyfish.jimmer.meta.ImmutableProp;
 import org.babyfish.jimmer.meta.ImmutableType;
+import org.babyfish.jimmer.meta.TypedProp;
 import org.babyfish.jimmer.runtime.DraftSpi;
 import org.babyfish.jimmer.runtime.ImmutableSpi;
 import org.babyfish.jimmer.sql.DissociateAction;
 import org.babyfish.jimmer.sql.TargetTransferMode;
+import org.babyfish.jimmer.sql.ast.TypeMatchMode;
 import org.babyfish.jimmer.sql.ast.mutation.*;
 import org.babyfish.jimmer.sql.ast.table.Table;
 import org.babyfish.jimmer.sql.fetcher.DtoMetadata;
@@ -251,4 +253,69 @@ public class ISimpleEntitySaveCommandImpl<E>
         );
     }
 
+    @Override
+    public AbstractEntitySaveCommand setEntityAssignment(ImmutableProp prop, SaveAssignmentExpression<?, ?, ?> expression) {
+        return new ISimpleEntitySaveCommandImpl<>(
+            new AssignmentCfg(cfg, prop, prop.getDeclaringType(), expression)
+        );
+    }
+
+    @Override
+    public <X, T extends Table<X>, V> SimpleEntitySaveCommand<E> set(Class<T> tableType, TypedProp.Scalar<X, V> prop, SaveAssignmentExpression<X, T, V> expression) {
+        return new ISimpleEntitySaveCommandImpl<>(
+            new AssignmentCfg(cfg, prop.unwrap(), ImmutableType.get(tableType), expression)
+        );
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setTypeMatchMode(TypeMatchMode mode) {
+        return new ISimpleEntitySaveCommandImpl<>(new TypeMatchModeCfg(cfg, mode));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeMatchModeAll(TypeMatchMode mode) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeMatchModeCfg(cfg, mode));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeMatchMode(Class<?> entityType, TypeMatchMode mode) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeMatchModeCfg(cfg, entityType, mode));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeMatchMode(ImmutableProp prop, TypeMatchMode mode) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeMatchModeCfg(cfg, prop, mode));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setTypeChangeAllowed(boolean allowed) {
+        return new ISimpleEntitySaveCommandImpl<>(new TypeChangeAllowedCfg(cfg, allowed));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeChangeAllowedAll(boolean allowed) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeChangeAllowedCfg(cfg, allowed));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeChangeAllowed(Class<?> entityType, boolean allowed) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeChangeAllowedCfg(cfg, entityType, allowed));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setAssociatedTypeChangeAllowed(ImmutableProp prop, boolean allowed) {
+        return new ISimpleEntitySaveCommandImpl<>(new AssociatedTypeChangeAllowedCfg(cfg, prop, allowed));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setSaveReturningEnabled(boolean enabled) {
+        return new ISimpleEntitySaveCommandImpl<>(new SaveReturningEnabledCfg(cfg, enabled));
+    }
+
+    @Override
+    public SimpleEntitySaveCommand<E> setSaveResultReadsAllProperties(boolean readsAllProperties) {
+        return new ISimpleEntitySaveCommandImpl<>(
+            new SaveResultReadsAllPropertiesCfg(cfg, readsAllProperties)
+        );
+    }
 }

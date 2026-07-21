@@ -8,6 +8,7 @@ description = 'dynamic dml generator for jimmer'
 dependencies {
     using platform(libs.jimmer.bom.get())
     using platform(libs.testcontainers.get())
+    using platform(libs.jackson2.get())
 
     compileOnly 'org.babyfish.jimmer:jimmer-sql'
     compileOnly libs.jspecify
@@ -26,6 +27,8 @@ dependencies {
     testRuntimeOnly libs.oracle
     testRuntimeOnly libs.sqlite
     testRuntimeOnly libs.logback.classic
+    testRuntimeOnly 'com.fasterxml.jackson.core:jackson-core'
+    testRuntimeOnly 'com.fasterxml.jackson.core:jackson-databind'
 
     testAnnotationProcessor 'org.babyfish.jimmer:jimmer-apt'
 

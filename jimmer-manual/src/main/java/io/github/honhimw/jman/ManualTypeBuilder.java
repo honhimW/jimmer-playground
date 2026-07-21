@@ -5,6 +5,7 @@ import org.babyfish.jimmer.meta.ImmutableType;
 import org.babyfish.jimmer.meta.PropId;
 import org.babyfish.jimmer.sql.Embeddable;
 import org.babyfish.jimmer.sql.Entity;
+import org.babyfish.jimmer.sql.EntityInstantiability;
 import org.babyfish.jimmer.sql.ManyToOne;
 
 import java.lang.annotation.Annotation;
@@ -22,6 +23,11 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
         @Override
         public String microServiceName() {
             return "";
+        }
+
+        @Override
+        public EntityInstantiability instantiability() {
+            return EntityInstantiability.AUTO;
         }
 
         @Override
@@ -68,6 +74,7 @@ public class ManualTypeBuilder<SELF extends ManualTypeBuilder<SELF, PROP_BUILDER
         type.props = props;
         type.selectableProps = props;
         type.superTypes = Collections.emptySet();
+        type.getMappedIds = Collections.emptyList();
     }
 
     /**

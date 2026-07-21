@@ -5,6 +5,7 @@ import org.babyfish.jimmer.sql.ast.SqlTimeUnit;
 import org.babyfish.jimmer.sql.ast.impl.Ast;
 import org.babyfish.jimmer.sql.ast.impl.query.ForUpdate;
 import org.babyfish.jimmer.sql.ast.impl.render.AbstractSqlBuilder;
+import org.babyfish.jimmer.sql.dialect.DeleteJoin;
 import org.babyfish.jimmer.sql.dialect.PaginationContext;
 import org.babyfish.jimmer.sql.dialect.UpdateJoin;
 import org.babyfish.jimmer.sql.runtime.Reader;
@@ -276,13 +277,63 @@ public class DDLDialectDelegate implements DDLDialect {
     }
 
     @Override
-    public boolean isDeleteAliasSupported() {
-        return delegate.isDeleteAliasSupported();
+    public @org.jetbrains.annotations.Nullable DeleteJoin getDeleteJoin() {
+        return delegate.getDeleteJoin();
     }
 
     @Override
-    public boolean isUpdateAliasSupported() {
-        return delegate.isUpdateAliasSupported();
+    public boolean isDeleteNeedsAsKeyword() {
+        return delegate.isDeleteNeedsAsKeyword();
+    }
+
+    @Override
+    public boolean isUpdateNeedsAsKeyword() {
+        return delegate.isUpdateNeedsAsKeyword();
+    }
+
+    @Override
+    public boolean isUpdateAliasRequired() {
+        return delegate.isUpdateAliasRequired();
+    }
+
+    @Override
+    public boolean isUpsertWithConflictPredicateSupported() {
+        return delegate.isUpsertWithConflictPredicateSupported();
+    }
+
+    @Override
+    public boolean isUpdateByValuesReturningSupported() {
+        return delegate.isUpdateByValuesReturningSupported();
+    }
+
+    @Override
+    public boolean isUpdateReturningSupported() {
+        return delegate.isUpdateReturningSupported();
+    }
+
+    @Override
+    public boolean isInsertReturningSupported() {
+        return delegate.isInsertReturningSupported();
+    }
+
+    @Override
+    public boolean isInsertBatchReturningByOrderSupported() {
+        return delegate.isInsertBatchReturningByOrderSupported();
+    }
+
+    @Override
+    public void insertReturning(InsertReturningContext ctx) {
+        delegate.insertReturning(ctx);
+    }
+
+    @Override
+    public void updateByValues(UpdateByValuesContext ctx) {
+        delegate.updateByValues(ctx);
+    }
+
+    @Override
+    public void updateReturning(UpdateReturningContext ctx) {
+        delegate.updateReturning(ctx);
     }
 
     @org.jetbrains.annotations.Nullable

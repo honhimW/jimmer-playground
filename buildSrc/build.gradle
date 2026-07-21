@@ -17,6 +17,10 @@ gradlePlugin {
             id 'io.github.honhimw.publish'
             implementationClass 'io.github.honhimw.PublishCfgPlugin'
         }
+        create('miscPlugin') {
+            id 'io.github.honhimw.misc'
+            implementationClass 'io.github.honhimw.MiscPlugin'
+        }
     }
 }
 

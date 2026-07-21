@@ -7,8 +7,12 @@ description = 'manually construct Jimmer-Module-System at runtime'
 
 dependencies {
     using platform(libs.jimmer.bom.get())
+    using platform(libs.jackson2.get())
 
     compileOnly 'org.babyfish.jimmer:jimmer-sql'
     compileOnly libs.jspecify
     compileOnly libs.slf4j.api
+
+    testRuntimeOnly 'com.fasterxml.jackson.core:jackson-core'
+    testRuntimeOnly 'com.fasterxml.jackson.core:jackson-databind'
 }

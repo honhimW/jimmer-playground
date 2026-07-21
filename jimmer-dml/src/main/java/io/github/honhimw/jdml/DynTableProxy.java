@@ -61,34 +61,24 @@ public class DynTableProxy extends AbstractTypedTable<Object> {
 
     @Override
     public <XT extends Table<?>> XT join(String prop) {
-        return join(prop, JoinType.INNER, null);
+        return join(prop, JoinType.INNER);
     }
 
     @Override
     public <XT extends Table<?>> XT join(ImmutableProp prop) {
-        return join(prop, JoinType.INNER, null);
+        return join(prop, JoinType.INNER);
     }
 
     @Override
     public <XT extends Table<?>> XT join(String prop, JoinType joinType) {
-        return join(prop, joinType, null);
-    }
-
-    @Override
-    public <XT extends Table<?>> XT join(ImmutableProp prop, JoinType joinType) {
-        return join(prop, joinType, null);
-    }
-
-    @Override
-    public <XT extends Table<?>> XT join(String prop, JoinType joinType, ImmutableType treatedAs) {
         ImmutableProp _prop = getImmutableType().getProp(prop);
-        return join(_prop, joinType, treatedAs);
+        return join(_prop, joinType);
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public <XT extends Table<?>> XT join(ImmutableProp prop, JoinType joinType, ImmutableType treatedAs) {
-        return (XT) new DynTableProxy(prop.getTargetType(), this, new DynDelayedOperation(this, prop, joinType, treatedAs));
+    public <XT extends Table<?>> XT join(ImmutableProp prop, JoinType joinType) {
+        return (XT) new DynTableProxy(prop.getTargetType(), this, new DynDelayedOperation(this, prop, joinType));
     }
 
     @Override

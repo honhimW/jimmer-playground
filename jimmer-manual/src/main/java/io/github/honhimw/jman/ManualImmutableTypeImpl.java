@@ -9,6 +9,7 @@ import org.babyfish.jimmer.sql.meta.MetadataStrategy;
 import org.babyfish.jimmer.sql.meta.SqlContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -263,5 +264,61 @@ public class ManualImmutableTypeImpl implements ImmutableType {
     @Override
     public String toString() {
         return tableName;
+    }
+
+    public boolean isInstantiable;
+
+    @Override
+    public boolean isInstantiable() {
+        return isInstantiable;
+    }
+
+    public ImmutableType getInheritanceRoot;
+
+    @Override
+    public @Nullable ImmutableType getInheritanceRoot() {
+        return getInheritanceRoot;
+    }
+
+    public InheritanceInfo getInheritanceInfo;
+
+    @Override
+    public @Nullable InheritanceInfo getInheritanceInfo() {
+        return getInheritanceInfo;
+    }
+
+    public Set<ImmutableType> getDirectDerivedTypes;
+
+    @Override
+    public Set<ImmutableType> getDirectDerivedTypes() {
+        return getDirectDerivedTypes;
+    }
+
+    public Set<ImmutableType> getAllDerivedTypes;
+
+    @Override
+    public Set<ImmutableType> getAllDerivedTypes() {
+        return getAllDerivedTypes;
+    }
+
+    public String getDiscriminatorValue;
+
+    @Override
+    public @Nullable String getDiscriminatorValue() {
+        return getDiscriminatorValue;
+    }
+
+    public List<MappedId> getMappedIds;
+
+    @Override
+    public @NonNull List<MappedId> getMappedIds() {
+        return getMappedIds;
+    }
+
+    public boolean isMappedIdProp;
+
+    @Override
+    public boolean isMappedIdProp(ImmutableProp prop) {
+        return isMappedIdProp;
     }
 }

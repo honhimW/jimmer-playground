@@ -2,7 +2,6 @@ package io.github.honhimw.jman;
 
 import org.babyfish.jimmer.jackson.Converter;
 import org.babyfish.jimmer.jackson.ConverterMetadata;
-import org.babyfish.jimmer.jackson.v3.ConverterMetadata3;
 import org.babyfish.jimmer.lang.Ref;
 import org.babyfish.jimmer.meta.*;
 import org.babyfish.jimmer.sql.DissociateAction;
@@ -445,11 +444,17 @@ public class ManualImmutablePropImpl implements ImmutableProp {
         return getDeclaringType() + "." + getName();
     }
 
-    public ConverterMetadata3 converterMetadata3;
+    public boolean isDiscriminator;
 
     @Override
-    public ConverterMetadata3 getConverterMetadata3() {
-        return converterMetadata3;
+    public boolean isDiscriminator() {
+        return isDiscriminator;
     }
 
+    public boolean hasDatabaseDefaultValue;
+
+    @Override
+    public boolean hasDatabaseDefaultValue() {
+        return hasDatabaseDefaultValue;
+    }
 }
