@@ -1,5 +1,7 @@
 # Jimmer Playground
 
+![CI](https://github.com/honhimW/jimmer-playground/actions/workflows/gradle.yml/badge.svg)
+
 | Modules                                                 | Status                                                                                                                                                                |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [DDL Generator](./jimmer-ddl/README.md)                 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.honhimw/jimmer-ddl.svg)](https://central.sonatype.com/artifact/io.github.honhimw/jimmer-ddl)       |
@@ -15,6 +17,12 @@
 > it is not possible to make third‑party extensions compatible with all releases.
 >
 > I will only develop against the version I personally use, and dependencies will be updated irregularly.
+
+#### Jimmer 0.11.2
+
+```groovy
+implementation 'io.github.honhimw:jimmer-xxx:0.5.x'
+```
 
 #### Jimmer 0.9.119
 
